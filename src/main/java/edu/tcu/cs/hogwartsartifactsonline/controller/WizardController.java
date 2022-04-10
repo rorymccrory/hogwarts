@@ -1,5 +1,6 @@
 package edu.tcu.cs.hogwartsartifactsonline.controller;
 
+import edu.tcu.cs.hogwartsartifactsonline.domain.Artifact;
 import edu.tcu.cs.hogwartsartifactsonline.domain.Wizard;
 import edu.tcu.cs.hogwartsartifactsonline.domain.Result;
 import edu.tcu.cs.hogwartsartifactsonline.domain.StatusCode;
@@ -21,9 +22,7 @@ public class WizardController {
 
     @GetMapping
     public Result findAll(){
-        List<Wizard> all = wizardService.findAll();
-        Result result = new Result(true, StatusCode.SUCCESS, "Find All Success", all);
-        return result;
+        return new Result(true, StatusCode.SUCCESS, "Find All Success", wizardService.findAll());
     }
 
     @GetMapping("/{wizardId}")
@@ -47,5 +46,11 @@ public class WizardController {
     public Result delete(@PathVariable Integer wizardId){
         wizardService.delete(wizardId);
         return new Result(true, StatusCode.SUCCESS, "Delete Success");
+    }
+
+    @PutMapping("/{wizardId}/{artifactId}")
+    public Result assignArtifact(@PathVariable Integer wizardId, @PathVariable String artifactId){
+        wizardService.assignArtifact(wizardId, artifactId);
+        return new Result(true, StatusCode.SUCCESS, "artifact assignment success");
     }
 }

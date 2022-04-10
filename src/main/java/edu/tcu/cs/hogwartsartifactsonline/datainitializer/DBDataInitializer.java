@@ -78,22 +78,5 @@ public class DBDataInitializer implements CommandLineRunner {
         //Since a6 doesn't have an owner yet, we need to save it explicitly here
         artifactDao.save(a6);
 
-        User u1 = new User();
-        u1.setUsername("john");
-        u1.setPassword("ajkhsdkjhfooirfdh12i383248723e2kknhf8");
-        u1.setEnabled(true);
-        u1.setRoles("admin");
-
-        User u2 = new User();
-        u2.setUsername("eric");
-        u2.setPassword("jhfsjdkhfuhyr9823jejdb18nbjhsbjdh");
-        u2.setEnabled(true);
-        u2.setRoles("user");
-
-        User u3 = new User();
-        u3.setUsername("tom");
-        u3.setPassword(";dsjgjdgfjskjfur08923j2oiqk3rgery4ygg");
-        u3.setEnabled(false);
-        u3.setRoles("user");
     }
 }
